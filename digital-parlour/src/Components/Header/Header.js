@@ -16,6 +16,7 @@ const Header = () => {
         navbarScroll
       >
         <NavLink className="navbar-brand text-white border border-secondary p-2 rounded-3" to="/home">Home</NavLink>
+        <NavLink className="navbar-brand text-white border border-secondary p-2 rounded-3" to="/services">Services</NavLink>
         <NavLink className="navbar-brand text-white border border-secondary p-2 rounded-3" to="login">Login</NavLink>
       </Nav>
      

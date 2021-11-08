@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Banner from './Banner';
+import Service from './Service/Service';
+import Testimonials from './Testimonials';
 
 const Home = () => {
 
-    
+    const [services,setservices]=useState([])
+
+    useEffect(()=>{
+        fetch("http://localhost:9000/services").then(res=>res.json()).then(data=>setservices(data));
+  
+    },[])
+
+
     return (
                
         <>
@@ -18,13 +29,26 @@ const Home = () => {
         </Container>
         </section>
 
-               <section className="my-5">
+              <Container className="mb-5">
+              <section className="my-5">
                    <center><h1 >Our Awesome <span style={{color:"red"}}>Services</span></h1></center>
 
-                   <Row xs={1} md={2} className="g-4">
+                   <Row xs={1} md={3} className="g-4">
+                       {
+                           services.map(service=><Service
+                           key={service._id}
+                           service={service}
+                           ></Service>)
+                       }
 
                    </Row>
                </section>
+               <center><Link to="/services"><button className="btn-danger px-3 border rounded-3 fs-3 py-1">See More</button></Link></center>
+              </Container>
+
+             <center> <Banner></Banner></center>
+
+             <Testimonials></Testimonials>
 
 
         </>
