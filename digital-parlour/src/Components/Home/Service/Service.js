@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Service = ({service}) => {
 
-    const {picture,about,name,cost}=service;
+    const {picture,about,name,cost,_id}=service;
 
     return (
       <div className="my-5">
@@ -19,7 +20,7 @@ const Service = ({service}) => {
         <ListGroup className="list-group-flush">
           <ListGroupItem> $ {cost}</ListGroupItem>
         </ListGroup>
-        <button className="text-light border rounded-3" style={{backgroundColor:'orangered',padding:'20px,'}}>Get Appointment</button>
+        <Link to={`/service/${_id}`}><button className="text-light border rounded-3" style={{backgroundColor:'orangered',padding:'20px,'}}>Get Appointment</button></Link>
       </Card>
 
      

@@ -6,6 +6,8 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Services from './Components/Services/Services';
 import Login from './Components/Login/Login';
+import Details from './Components/Details/Details';
+
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
       </Route>
       <Route path="/login">
         <Login></Login>
+      </Route>
+      <Route path="/service/:serviceId">
+       <Details></Details>
       </Route>
     </Switch>
     <Footer></Footer>
